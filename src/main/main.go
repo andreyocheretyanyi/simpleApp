@@ -30,8 +30,7 @@ func main() {
 	http.HandleFunc("/", postHandler)
 	http.HandleFunc("/add", addHandler)
 	log.Println("Listening...")
-	log.Println("PORT...",os.Getenv("PORT"))
-	http.ListenAndServe(":"+os.Getenv("port"), nil)
+	http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 
 }
 
