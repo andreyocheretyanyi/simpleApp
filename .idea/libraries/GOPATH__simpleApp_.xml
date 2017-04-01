@@ -1,11 +1,9 @@
 <component name="libraryTable">
   <library name="GOPATH &lt;simpleApp&gt;">
     <CLASSES>
-      <root url="file://H:/GoCatalog/src/simpleApp" />
       <root url="file://H:/GoCatalog/src/github.com" />
     </CLASSES>
     <SOURCES>
-      <root url="file://H:/GoCatalog/src/simpleApp" />
       <root url="file://H:/GoCatalog/src/github.com" />
     </SOURCES>
     <excluded>
