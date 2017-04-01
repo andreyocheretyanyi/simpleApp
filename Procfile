@@ -1,1 +1,1 @@
-worker: main -port=$PORT
+web: main -port=$PORT
