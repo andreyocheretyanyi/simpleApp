@@ -26,8 +26,8 @@ var users []User
 func main() {
 	item := User{"Anna", true}
 	users = append(users, item)
-	http.HandleFunc("/getData", postHandler)
-	http.HandleFunc("/", addHandler)
+	http.HandleFunc("/", postHandler)
+	http.HandleFunc("/add", addHandler)
 	log.Println("Listening...")
 	http.ListenAndServe(":3000", nil)
 }
@@ -35,7 +35,6 @@ func main() {
 
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
-
 	if r.Method == http.MethodGet {
 		response := ResponseGet{true, users}
 		productJson, _ := json.Marshal(response)
