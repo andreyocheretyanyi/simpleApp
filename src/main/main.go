@@ -27,10 +27,12 @@ func main() {
 	item := User{"Anna", true}
 	users = append(users, item)
 	http.HandleFunc("/getData", postHandler)
-	http.HandleFunc("/add", addHandler)
+	http.HandleFunc("/", addHandler)
 	log.Println("Listening...")
 	http.ListenAndServe(":3000", nil)
 }
+
+
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
 
