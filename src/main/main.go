@@ -5,6 +5,7 @@ import (
 	_ "fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 type ResponseGet struct {
@@ -29,7 +30,9 @@ func main() {
 	http.HandleFunc("/", postHandler)
 	http.HandleFunc("/add", addHandler)
 	log.Println("Listening...")
-	http.ListenAndServe(":3000", nil)
+	log.Println("PORT...",os.Getenv("PORT"))
+	http.ListenAndServe(os.Getenv("port"), nil)
+
 }
 
 
