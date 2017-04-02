@@ -24,7 +24,7 @@ func open_db() *sql.DB {
 func create_table ()  {
 	db := open_db()
 	defer db.Close()
-	qv := "CREATE TABLE users ("+
+	qv := "CREATE TABLE IF NOT EXISTS users ("+
 		"id SERIAL CONSTRAINT _id PRIMARY KEY,"+
 		"name VARCHAR(255),"+
 		"status BOOLEAN"+
