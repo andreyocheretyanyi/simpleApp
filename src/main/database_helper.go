@@ -17,13 +17,11 @@ func open_db() {
 		log.Fatal(err)
 	}
 
-	_ , err = db.Query("CREATE TABLE user (_id INTEGER," +
-		" NAME VARCHAR(20) NOT NULL," +
-		" status BOOLEAN NOT NULL," +
-		" PRIMARY KEY (_id))")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS " +
+		`user("id" SERIAL PRIMARY KEY,` +
+		`"name" varchar(50), "status" boolean)`)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	db.Query("INSERT INTO user VALUES ('Andrey',true)")
 }
