@@ -8,6 +8,7 @@ import (
 var users []User
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
+	create_table()
 	if r.Method == http.MethodGet {
 		users = get_element()
 		response := ResponseGet{true, users}

@@ -10,7 +10,6 @@ import (
 
 
 func main() {
-	create_table()
 	http.HandleFunc("/", postHandler)
 	http.HandleFunc("/add", addHandler)
 	log.Println("Listening...")
