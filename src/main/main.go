@@ -18,6 +18,7 @@ func main() {
 	port := ":"+os.Getenv("PORT")
 	//port := ":5500"
 	fmt.Print(port)
+	open_db()
 	http.ListenAndServe(port, nil)
 
 }
