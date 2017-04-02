@@ -16,7 +16,7 @@ func open_db() *sql.DB {
 	if err != nil {
 		log.Fatal(err)
 	}
-	db.Ping();
+	db.Ping()
 
 	return db
 }
@@ -40,7 +40,7 @@ func create_table ()  {
 func add_element(name string,status bool)  {
 	db := open_db()
 	defer db.Close()
-	_, err := db.Exec("INSERT INTO users (`name`, `status`) VALUES ($1,$2)",name,status)
+	_, err := db.Exec("INSERT INTO `users` (`name`, `status`) VALUES ($1,$2)",name,status)
 	if err != nil{
 		fmt.Println(err)
 	}
@@ -50,7 +50,7 @@ func get_element() []User  {
 	var users []User
 	db := open_db()
 	defer db.Close()
-	rows, err := db.Query("SELECT name, status FROM users")
+	rows, err := db.Query("SELECT `name`, `status` FROM `users`")
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -58,7 +58,7 @@ func get_element() []User  {
 		var fio string
 		var status bool
 		err = rows.Scan(&fio,&status)
-		if(err != nil){
+		if err != nil {
 			fmt.Println(err)
 		}
 		usr := User{fio,status}
