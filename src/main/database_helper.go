@@ -17,11 +17,18 @@ func open_db() {
 		log.Fatal(err)
 	}
 
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS " +
-		`user("id" SERIAL PRIMARY KEY,` +
-		`"name" varchar(50), "status" boolean)`)
+	qv := "CREATE TABLE users ("+
+		"id SERIAL,"+
+		"age INT,"+
+		"first_name VARCHAR(255),"+
+		"last_name VARCHAR(255),"+
+		"email TEXT"+
+	");"
+
+	_, err = db.Exec(qv)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 }
+
