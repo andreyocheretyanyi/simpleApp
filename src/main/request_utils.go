@@ -5,8 +5,11 @@ import (
 	"encoding/json"
 )
 
+var users []User
+
 func postHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
+		users = get_element()
 		response := ResponseGet{true, users}
 		productJson, _ := json.Marshal(response)
 		w.Header().Set("Content-Type", "application/json")
@@ -28,7 +31,7 @@ func addHandler(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		users = append(users, user)
+		add_element(user.Name,user.Done)
 		response := ResponsePost{true}
 		productJson, _ := json.Marshal(response)
 		w.Header().Set("Content-Type", "application/json")
